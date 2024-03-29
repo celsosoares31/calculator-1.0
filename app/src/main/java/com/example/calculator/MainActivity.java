@@ -5,7 +5,6 @@ import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
    private EditText textInput;
    private TextView textOutput;
    private int numberOfParenthesisCLick = 0;
-   private int numberOfPlusMinusClick = 0;
    
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +70,9 @@ public void sixPressed(View view){
    }
 //   Other operations buttons
    public void plusMinusPressed(View view){
-//      textInput.setSelection(0);
       SpannableStringBuilder value = (SpannableStringBuilder) textInput.getText();
       
       String signal = String.valueOf(value.charAt(0));
-      String newStr;
       if(signal.equals("-")){
          value.replace(0,1,"");
          textInput.setText(value);
@@ -87,7 +83,6 @@ public void sixPressed(View view){
          textInput.setSelection(value.length());
       }
       
-      //      updateOutput(getResources().getString(R.string.plusMinus));
    }
    public void parenthesesPressed(View view){
       if(numberOfParenthesisCLick == 0){
